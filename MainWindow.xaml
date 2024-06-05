@@ -1,0 +1,72 @@
+﻿<Window x:Class="MVP_Checkers.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MVP_Checkers.ViewModels"
+        mc:Ignorable="d"
+        Title="CheckerBoardGame" Height="800" Width="1000"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+      Background="#9D56B9">
+
+    <Window.DataContext>
+        <local:GameVM/>
+    </Window.DataContext>
+    <Grid  Background="#9D56B9">
+        <ItemsControl x:Name="Grid" ItemsSource="{Binding Board}" Margin="189,97,200,64" Background="#FFF4D0C6" >
+            <ItemsControl.Effect>
+                <DropShadowEffect/>
+            </ItemsControl.Effect>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <ItemsControl ItemsSource="{Binding}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Border Width="75" Height="75" BorderThickness="1" BorderBrush="#000000">
+                                        <Image Source="{Binding GenericSquare.Texture}" Stretch="UniformToFill"/>
+                                    </Border>
+                                    <Button Command="{Binding ClickPieceCommand}" CommandParameter="{Binding GenericSquare}">
+                                        <Button.Effect>
+                                            <DropShadowEffect/>
+                                        </Button.Effect>
+                                        <Button.Template>
+                                            <ControlTemplate>
+                                                <Image Source="{Binding GenericSquare.Piece.Texture}" Height="70" Width="70"/>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                    <Button Command="{Binding MovePieceCommand}" CommandParameter="{Binding GenericSquare}">
+                                        <Button.Template>
+                                            <ControlTemplate>
+                                                <Image Source="{Binding GenericSquare.LegalSquareSymbol}" Height="70" Width="70"/>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <Menu Margin="0,0,0,728" DockPanel.Dock="Top" Background="#FFE0848E">
+            <MenuItem Header="Settings" FontSize="16" Background="Pink" BorderBrush="Black" BorderThickness="1">
+                <MenuItem Header="New Game" Command="{Binding Interactions.ResetCommand}"/>
+                <MenuItem Header="Save Game" Command="{Binding Interactions.SaveCommand}"/>
+                <MenuItem Header="Open existent game" Command="{Binding Interactions.LoadCommand}"/>
+                <MenuItem Header="About" Command="{Binding Interactions.AboutCommand}"/>
+
+            </MenuItem>
+        </Menu>
+        <TextBlock HorizontalAlignment="Left" Margin="296,37,0,0" TextWrapping="Wrap" FontFamily="Garamond" FontSize="30" Text="Turn of Player: " VerticalAlignment="Top" Foreground="#FF610A0A" Background="#FFEB9090" FontWeight="Bold" Height="37" Width="204"/>
+        <Image HorizontalAlignment="Left" Height="35" Margin="529,37,0,0"
+               VerticalAlignment="Top" Width="38" Source="{Binding PlayerTurnVM.PlayerIcon.TurnImage}" RenderTransformOrigin="-0.479,-0.336"/>
+
+    </Grid>
+</Window>

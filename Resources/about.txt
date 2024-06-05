@@ -1,0 +1,12 @@
+﻿
+Descriere:
+
+Numele creatorului programului:  Ilie Denisa Mihaela
+Grupa: 10LF322
+
+Jocul creat este un joc simplu de dame, dezvoltat pentru un proiect din cadrul universitatii.
+Jucătorii pot efectua mutări pe diagonale,
+iar obiectivul este să captureze piesele adversarului și să avanseze propriile piese
+către cealaltă parte a tablei pentru a le transforma în regi. 
+Jocul include funcționalități precum salt simplu, 
+dublu salt și salvare-încărcare a progresului.

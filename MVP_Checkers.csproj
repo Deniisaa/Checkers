@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\HelpSquare.png" />
+    <None Remove="Resources\PinkSquare.png" />
+    <None Remove="Resources\RedCircle.png" />
+    <None Remove="Resources\RedKingCircle.png" />
+    <None Remove="Resources\squareRed.png" />
+    <None Remove="Resources\WhiteCircle.png" />
+    <None Remove="Resources\WhiteKingCircle.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\RedCircle.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\WhiteCircle.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\HelpSquare.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\PinkSquare.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>
